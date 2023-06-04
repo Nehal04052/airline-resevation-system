@@ -1,4 +1,7 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
+import { useNavigate, BrowserRouter as Router } from "react-router-dom";
+
+
 import { InputTextComp } from "./InputTextComp";
 import { IoIosAirplane, IoMdPerson, IoMdPeople } from "react-icons/io";
 import { ButtonYellowComp } from "./ButtonYellowComp";
@@ -7,9 +10,11 @@ import axios from "axios";
 
 
 export const FlightBookingFormComp = () => {
+  const navigate = useNavigate();
 
   const [origin, setorigin] = useState("");
   const [destination, setDestination] = useState("");
+  const [flightsData, setFlightsData] = useState([]);
 
 
   const options = Array.from({ length: 11 }, (_, i) => i);
@@ -25,10 +30,33 @@ export const FlightBookingFormComp = () => {
         const response = await axios.get('http://localhost:3002/api/flights', {
           params: {
             origin: origin,
-          destination: destination,
+            destination: destination,
           },
         });
         console.log(response.data);
+
+        const flightsInfo = response.data.map((flight) => ({
+          id: flight.id,
+          origin: flight.origin,
+          destination: flight.destination,
+          deptime: flight.deptime,
+          arrtime:flight.arrtime,
+          flightno:flight.flightno,
+          airline:flight.airline,
+          Total_fare:flight.Total_fare,
+          seatingclass:flight.seatingclass,
+          duration:flight.duration,
+          stops:flight.stops,
+          stop1:flight.stop1,
+          stop2:flight.stop2,
+          // Include any other relevant information needed on the flights page
+        }));
+        //setFlightsData(response.data);
+        // Navigate to the flights page with the flight data
+        //navigate("/flights", { state: response.data });
+        console.log("flightsInfo:", flightsInfo);
+        navigate("/flights",  {state: { flightsInfo: flightsInfo } });
+        
       } catch (error) {
         console.error(error);
       }
@@ -37,6 +65,7 @@ export const FlightBookingFormComp = () => {
 
 
   return (
+  
     <div className="bg-white pb-5  w-[35%] h-[85%] rounded-3xl absolute bottom--10 shadow shadow-gray-300">
       <div className="p-2">
         <p className="font-semibold">
@@ -152,5 +181,6 @@ export const FlightBookingFormComp = () => {
         <button onClick={handleFindFlights}><ButtonYellowComp label="FIND FLIGHTS" extraStyle="mt-1 text-sm" /></button>
       </div>
     </div>
+   
   );
 };

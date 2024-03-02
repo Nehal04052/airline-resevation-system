@@ -39,7 +39,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-##Snapshot.
+# Snapshot.
 
 ![image](https://github.com/Nehal04052/airline-resevation-system/assets/126107576/2050eb25-c27f-4327-804b-ac0af5174b6f)
 ![image](https://github.com/Nehal04052/airline-resevation-system/assets/126107576/9f31ddcf-f658-42c8-9d0e-628082480edc)
@@ -50,15 +50,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ![image](https://github.com/Nehal04052/airline-resevation-system/assets/126107576/2f7f7296-05b4-4457-a373-3cf70fbbd048)
 ![image](https://github.com/Nehal04052/airline-resevation-system/assets/126107576/aeea46a6-f95b-40c3-9f50-e7a201e31ed6)
 ![image](https://github.com/Nehal04052/airline-resevation-system/assets/126107576/65783d2e-15f4-4412-8f44-8c149ac4156e)
-
-
-
-
-
-
-
-
-
 
 ## Learn More
 
